@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite Especial</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      body {
+    background-color: #ffe4e1;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    border: 2px solid #ff69b4;
+    padding: 50px;
+    background: #fff0f5;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #ff1493;
+    font-size: 2.5em;
+}
+
+p {
+    color: #db7093;
+    font-size: 1.5em;
+}
+
+button {
+    background-color: #ff1493;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff69b4;
+}
+
+#nao {
+    position: relative;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Oi, meu amor!</h1>
+        <p>Você quer assistir um filme comigo?</p>
+        <div class="buttons">
+            <button id="sim" onclick="sim()">Sim</button>
+            <button id="nao" onclick="nao()">Não</button>
+            <p><a href="https://rave.watch/pKDgh" id="res"></a></p>
+        </div>
+    </div>
+    <script>
+      const botaoNao = document.getElementById('nao');
+const container = document.querySelector('.container');
+
+botaoNao.addEventListener('mouseover', () => {
+    const containerRect = container.getBoundingClientRect();
+    const botaoRect = botaoNao.getBoundingClientRect();
+
+    let novaPosX = Math.random() * (containerRect.width - botaoRect.width);
+    let novaPosY = Math.random() * (containerRect.height - botaoRect.height);
+
+    // Evita que o botão fique fora da borda
+    novaPosX = Math.max(0, Math.min(novaPosX, containerRect.width - botaoRect.width));
+    novaPosY = Math.max(0, Math.min(novaPosY, containerRect.height - botaoRect.height));
+
+    botaoNao.style.position = 'absolute';
+    botaoNao.style.left = `${novaPosX}px`;
+    botaoNao.style.top = `${novaPosY}px`;
+});
+
+function sim(){
+  alert("AEEEEEEEE AMOR, EU TE AMO")
+  var res = document.getElementById("res")
+  res.innerHTML = `Assista Agora :)`
+}
+    </script>
+</body>
+</html>
